@@ -1,2 +1,2 @@
-Blogs Generator using OpenAI API
+# Blogs Generator using OpenAI API
 
