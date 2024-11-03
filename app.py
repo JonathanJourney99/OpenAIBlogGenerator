@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 from llm import GPT_content_generator
 
 # Defining a class for managing session state
@@ -22,6 +23,12 @@ def My_Blog():
     st.subheader('My Custom Blog Generator')
     st.header("Blog's Generator using OpenAI API 🤖")
 
+    # Sidebar for OpenAI API key input
+    with st.sidebar:
+        user_key = st.text_input('Insert your OpenAI API key:', type='password')
+        if user_key:
+            os.environ['OPENAI_API_KEY'] = user_key
+
     # Creating an input field for the user to enter the blog topic
     user_topic = st.text_input("Enter the Blog Topic")
 
@@ -38,7 +45,7 @@ def My_Blog():
             "professional", "teenager", "child", "author", "lifestyle", "tech_enthusiast", 
             "niche_hobbyist", "activist", "educator", "entrepreneur", "health_and_fitness_enthusiast"
         ])
-
+    
     # Creating a button to submit and generate the blog
     submit = st.button("Generate Blog")
 
